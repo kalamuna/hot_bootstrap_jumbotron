@@ -43,8 +43,8 @@ function hot_bootstrap_jumbotron_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'fieldable_panels_pane-hot_bootstrap_jumbotron-field_hot_jumbotron_caption'
-  $field_instances['fieldable_panels_pane-hot_bootstrap_jumbotron-field_hot_jumbotron_caption'] = array(
+  // Exported field_instance: 'fieldable_panels_pane-hot_bootstrap_jumbotron-field_hot_bootstrap_jumbotron_caption'
+  $field_instances['fieldable_panels_pane-hot_bootstrap_jumbotron-field_hot_bootstrap_jumbotron_caption'] = array(
     'bundle' => 'hot_bootstrap_jumbotron',
     'default_value' => NULL,
     'deleted' => 0,
@@ -61,7 +61,7 @@ Keep this text short, see what a jumbtron looks like on the <a href="http://getb
       ),
     ),
     'entity_type' => 'fieldable_panels_pane',
-    'field_name' => 'field_hot_jumbotron_caption',
+    'field_name' => 'field_hot_bootstrap_jumbotron_caption',
     'label' => 'Caption',
     'required' => 0,
     'settings' => array(
