@@ -1,4 +1,8 @@
-hot_bootstrap_jumbotron
-========
+# HotBootstrapJumbotron! #
 
-Provides a basic Call to Action widget on a feature, just wanted to archive some work.
+`hot_bootstrap_jumbotron`
+
+![Screenshot of the element reading, Hot Bootstrap Jumbotron!
+This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.](images/hot-bootstrap-jumbtron-screenshot.png)
+
+> A lightweight, flexible component that can optionally extend the entire viewport to showcase key content on your site.
