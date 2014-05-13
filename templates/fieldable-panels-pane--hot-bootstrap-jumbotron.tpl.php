@@ -15,7 +15,7 @@
 
   <?php
    print render($elements['title']);
-   print render($elements['field_hot_bootstrap_jumbotron_caption']);
+   print render($elements['field_hot_bs_jumbotron_caption']);
    if(isset($elements['field_hot_button'])):
   ?>
   <p>
