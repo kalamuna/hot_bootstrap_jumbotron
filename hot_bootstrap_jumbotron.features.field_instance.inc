@@ -18,16 +18,12 @@ function hot_bootstrap_jumbotron_field_default_field_instances() {
     'description' => 'Optional bootstrap button here, maybe try <code>.btn-prmary</code> &  <code>.btn-large</code>',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'field_collection_fields',
         'weight' => 1,
       ),
     ),
@@ -57,7 +53,7 @@ Keep this text short, see what a jumbtron looks like on the <a href="http://getb
 ',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',

@@ -23,3 +23,29 @@ function hot_bootstrap_jumbotron_entity_info_alter(&$entity_info) {
     ),
   );
 }
+
+
+function hot_bootstrap_jumbotron_preprocess_fieldable_panels_pane(&$variables){
+  if($variables['elements']['#bundle'] === 'hot_bootstrap_jumbotron'){
+    $variables['elements']['title'] = array(
+      '#theme' => 'html_tag',
+      '#tag' => 'h1', 
+      '#value' => $variables['elements']['#fieldable_panels_pane']->title
+    );
+
+
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function hot_bootstrap_jumbotron_theme(){
+  return array(
+    'fieldable_panels_pane__hot_bootstrap_jumbotron' => array(
+      'template' => 'templates/fieldable-panels-pane--hot-bootstrap-jumbotron',
+      'render element' => 'elements',
+      'type' => 'module'
+    )
+  );
+}
