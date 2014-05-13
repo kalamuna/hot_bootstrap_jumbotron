@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * Code for the Bootstrap Jumbotron module
+ */
+
+include_once 'hot_bootstrap_jumbotron.features.inc';
+
+/**
+ * Implementation of hook_entity_info_alter()
+ */
+function hot_bootstrap_jumbotron_entity_info_alter(&$entity_info) {
+  // Fieldable panel pane bundle to for Bootstrap Jumbotron
+  $entity_info['fieldable_panels_pane']['bundles']['hot_bootstrap_jumbotron'] = array(
+    'label' => t('Bootstrap Jumbotron'),
+    'pane category' => t('HotWidgets!'),
+    'pane top level' => FALSE,
+    'admin' => array(
+      'path' => 'admin/structure/fieldable-panels-panes/manage/%fieldable_panels_panes_type',
+      'bundle argument' => 4,
+      'real path' => 'admin/structure/fieldable-panels-panes/manage/hot-bootstrap-jumbotron',
+      'access arguments' => array('administer fieldable panels panes'),
+    ),
+  );
+}
+
+
+
+/**
+ * Add wrapper class to hot_bootstrap_jumbotron pane
+ */
+function hot_bootstrap_jumbotron_preprocess_panels_pane(&$vars) {
+  $content = &$vars['content'];
+  if (isset($content['#entity_type']) && $content['#entity_type'] == 'fieldable_panels_pane' && $content['#bundle'] == 'hot_bootstrap_jumbotron') {
+
+    $fieldable_panels_pane = $content['#fieldable_panels_pane'];
+    $wrapper = entity_metadata_wrapper('fieldable_panels_pane', $fieldable_panels_pane);
+    $cta_style = $wrapper -> field_hot_bootstrap_jumbotron_style -> value();
+    $image = $wrapper -> field_basic_image_image -> value();
+
+    if(  strlen( $cta_style ) <  1  &&  $image  ) {
+      $cta_style = 'kala-cta-overlay';
+    } elseif ( !$image ) {
+      $cta_style = 'kala-cta-card-brand';
+    }
+
+    $vars['classes_array'][] = 'kala-cta';
+    $vars['classes_array'][] =  $cta_style;
+
+    unset( $vars['title_attributes_array']['class'] );
+    $vars['theme_hook_suggestions'][] = 'panels_pane__fieldable_panels_pane__hot_bootstrap_jumbotron';
+
+    $vars['content']['title'] = array(
+      '#markup' =>'<h3 class="kala-cta-title">' .$vars['title']. '</h3>'
+    );
+
+  }
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function hot_bootstrap_jumbotron_theme_registry_alter(&$theme_registry) {
+  $theme_registry['panels_pane__fieldable_panels_pane__hot_bootstrap_jumbotron'] = array(
+    'template' => drupal_get_path('module', 'hot_bootstrap_jumbotron') . '/templates/panels-pane-fieldable-panels-pane--fieldable-kala-cta',
+    'theme path' => drupal_get_path('module', 'hot_bootstrap_jumbotron'),
+    'type' => 'module',
+  );
+}
