@@ -29,11 +29,9 @@ function hot_bootstrap_jumbotron_preprocess_fieldable_panels_pane(&$variables){
   if($variables['elements']['#bundle'] === 'hot_bootstrap_jumbotron'){
     $variables['elements']['title'] = array(
       '#theme' => 'html_tag',
-      '#tag' => 'h1', 
+      '#tag' => 'h1',
       '#value' => $variables['elements']['#fieldable_panels_pane']->title
     );
-
-
   }
 }
 

@@ -12,10 +12,9 @@
  */
 ?>
 <section class="jumbotron">
-  <?php if( $variables['elements']['#fieldable_panels_pane']->title): ?>
-  <h1><?php print $variables['elements']['#fieldable_panels_pane']->title;?></h1>
 
-  <?php endif;
+  <?php
+   print render($elements['title']);
    print render($elements['field_hot_jumbotron_caption']);
    if(isset($elements['field_hot_button'])):
   ?>
